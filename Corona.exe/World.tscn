@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/character.png" type="Texture" id=1]
+[ext_resource path="res://assets/virus.png" type="Texture" id=2]
+[ext_resource path="res://Player 1.gd" type="Script" id=3]
+[ext_resource path="res://Virus.gd" type="Script" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 26.9545, 44.0434 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 96.5885, 89.7908 )
+
+[node name="World" type="Node2D"]
+
+[node name="Player 1" type="KinematicBody2D" parent="."]
+position = Vector2( 774.173, 503.035 )
+script = ExtResource( 3 )
+
+[node name="Ma Good Looks" type="AnimatedSprite" parent="Player 1"]
+position = Vector2( 3.63409, 61.3902 )
+scale = Vector2( 6.21051, 5.76522 )
+frames = SubResource( 1 )
+
+[node name="Ma Hitbox" type="CollisionShape2D" parent="Player 1"]
+position = Vector2( -4.05487, 56.0236 )
+shape = SubResource( 2 )
+
+[node name="cameraman" type="Camera2D" parent="Player 1"]
+current = true
+
+[node name="Virus" type="KinematicBody2D" parent="."]
+position = Vector2( 328.663, 402.118 )
+script = ExtResource( 4 )
+
+[node name="His Ugliness" type="AnimatedSprite" parent="Virus"]
+position = Vector2( 2.88953, 1.1779 )
+scale = Vector2( 14.616, 12.792 )
+frames = SubResource( 3 )
+
+[node name="The Place Where You should not touch" type="CollisionShape2D" parent="Virus"]
+position = Vector2( 5.10849, -1.41958 )
+shape = SubResource( 4 )
